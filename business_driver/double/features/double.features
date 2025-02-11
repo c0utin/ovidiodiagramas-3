@@ -1,0 +1,16 @@
+Feature: Delivery Deadline Management
+
+  Scenario: Order delivered on time
+    Given an order is placed
+    When the delivery is completed within the expected time
+    Then the order status should be "delivered on time"
+
+  Scenario: Order delivery is delayed
+    Given an order is placed
+    When the delivery exceeds the deadline
+    Then the order status should be "late"
+
+  Scenario: System tracks percentage of late deliveries
+    Given multiple orders are placed
+    When some orders exceed the deadline
+    Then the system should calculate the percentage of late deliveries
